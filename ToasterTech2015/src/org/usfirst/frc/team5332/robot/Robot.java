@@ -1,6 +1,11 @@
 
 package org.usfirst.frc.team5332.robot;
 
+import org.usfirst.frc.team5332.robot.Drive.Drive;
+import org.usfirst.frc.team5332.robot.Drive.DriveHardware;
+import org.usfirst.frc.team5332.robot.Drive.DriveSoftware;
+import org.usfirst.frc.team5332.robot.Drive.DriveTeleopBehavior;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 /**
@@ -15,9 +20,12 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-	
+	Drive drive;
     public void robotInit() {
-
+    	DriveHardware dh=new DriveHardware();
+    	DriveSoftware ds=new DriveSoftware(dh);
+    	DriveTeleopBehavior	dt=new DriveTeleopBehavior(ds);
+    	drive=new Drive(dh,ds,dt);
     }
 
     /**
@@ -31,7 +39,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        
+        drive.run();
     }
     
     /**
