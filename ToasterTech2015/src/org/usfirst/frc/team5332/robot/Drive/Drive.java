@@ -4,12 +4,12 @@ import org.usfirst.frc.team5332.robot.RobotSubsystem;
 import org.usfirst.frc.team5332.robot.SystemBehavior;
 
 public class Drive extends RobotSubsystem{
-	private DriveHardware hardware;
+	private DriveHardware hardware; //Assign variables to the different classes
 	private DriveSoftware software;
 	private DriveTeleopBehavior behavior;
 	
 	public Drive(DriveHardware arg_hardware,DriveSoftware arg_software,	DriveTeleopBehavior arg_behavior){
-		hardware=arg_hardware;
+		hardware=arg_hardware; //Take drive arguments
 		software=arg_software;
 		behavior=arg_behavior;
 	}
