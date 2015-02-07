@@ -1,6 +1,9 @@
 package org.usfirst.frc.team5332.robot.Drive;
 
-public class Drive {
+import org.usfirst.frc.team5332.robot.RobotSubsystem;
+import org.usfirst.frc.team5332.robot.SystemBehavior;
+
+public class Drive extends RobotSubsystem{
 	private DriveHardware hardware;
 	private DriveSoftware software;
 	private DriveTeleopBehavior behavior;
@@ -9,6 +12,14 @@ public class Drive {
 		hardware=arg_hardware;
 		software=arg_software;
 		behavior=arg_behavior;
+	}
+
+	@Override
+	public void run() {
+		behavior.run();
+	}
+	public void setBehavior(DriveTeleopBehavior b){
+		behavior=b;
 	}
 	
 }
