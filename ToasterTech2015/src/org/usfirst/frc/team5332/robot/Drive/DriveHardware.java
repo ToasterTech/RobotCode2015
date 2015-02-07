@@ -12,6 +12,9 @@ public class DriveHardware extends HardwareSystem {
 		driveLeft1=IO.driveLeft1;
 	}
 	public void setMotors(double left,double right){
-		/* Add code to drive motors in hardware*/
+		driveLeft1.set(left);
+		driveLeft2.set(left);
+		driveRight1.set(right);
+		driveRight2.set(right);
 	}
 }
