@@ -18,8 +18,10 @@ public class Drive extends RobotSubsystem{
 	public void run() {
 		behavior.run();
 	}
-	public void setBehavior(DriveTeleopBehavior b){
-		behavior=b;
+	@Override
+	public void setBehavior(SystemBehavior b) {
+		// TODO Auto-generated method stub
+		behavior=(DriveTeleopBehavior)b;
 	}
 	
 }
