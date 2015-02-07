@@ -22,7 +22,10 @@ public class DriveTeleopBehavior extends SystemBehavior<DriveSoftware>{
 	
 	public DriveTeleopBehavior(DriveSoftware sw) {
 		super(sw);
-		//IO
+		//NOTE: This code has been moved to DriveSpeedScaling.
+		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
+		//defined in here.
+		/*//IO
 		joystick1=IO.joystick1;
 		joystick2=IO.joystick2;
 		//Normal operation
@@ -31,7 +34,9 @@ public class DriveTeleopBehavior extends SystemBehavior<DriveSoftware>{
 		JSLeftReturn=Math.pow(joystick1.getY()+InitGain, Exp); //Speed scaling can be done here
 		JSRightReturn=Math.pow(joystick2.getY()+InitGain, Exp); //Speed scaling can be done here
 		//Half speed
-		n = 2.0; //Scaling number (JSReturnedValue / n)
+		n = 2.0; //Scaling number (JSLeft-RightScaling / n)
+		JSLeftScaling = joystick1.getY() + InitGain / n; //Speed reduction (y + InitGain / n)
+		JSRightScaling =joystick2.getY() + InitGain / n; //Speed reduction (y + InitGain / n)*/
 	}
 	@Override
 	public void run() {
@@ -43,8 +48,6 @@ public class DriveTeleopBehavior extends SystemBehavior<DriveSoftware>{
 	}
 	
 	public void lowSpeedDrive(){
-		JSLeftScaling = JSLeftReturn / n; //Get scaled value
-		JSRightScaling = JSRightReturn / n; //Get scaled value
 		this.software.driveMotors(JSLeftScaling, JSRightScaling); //Tank drive with new speed values
 	}
 }
