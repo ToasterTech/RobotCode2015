@@ -9,18 +9,28 @@ import edu.wpi.first.wpilibj.Joystick;
 public class DriveTeleopBehavior extends SystemBehavior<DriveSoftware>{
 	private Joystick joystick1;
 	private Joystick joystick2;
-	//Return values
-	private Double JSLeftReturn; //Left Joystick's returned value
-	private Double JSRightReturn; //Right Joystick's returned value
-	private Double JSLeftScaling; //Scaling processing variable
-	private Double JSRightScaling; //Scaling processing variable
-	private Double n; //Scaling number
+	//Return values (to be log/poly)
+	private double JSLeftReturn; //Left Joystick's returned value
+	private double JSRightReturn; //Right Joystick's returned value
+	//Scaling operators (linear) 
+	private double JSLeftScaling; //Scaling processing variable
+	private double JSRightScaling; //Scaling processing variable
+	private double n; //Down scaling number (speed/n for lowSpeedDrive)
+	//Special curve values (poly/log)
+	private double InitGain; //Initial speed gain (speed+InitGain to skip dead-band)
+	private double Exp; //Exponent for curve polynomial (speed^Exp for log. curve [or something like that])
+	
 	public DriveTeleopBehavior(DriveSoftware sw) {
 		super(sw);
+		//IO
 		joystick1=IO.joystick1;
 		joystick2=IO.joystick2;
-		JSLeftReturn=joystick1.getY(); //Speed scaling can be done here
-		JSRightReturn=joystick2.getY(); //Speed scaling can be done here
+		//Normal operation
+		InitGain = 0; //Initial gain value
+		Exp = 1; //Exponent for curve
+		JSLeftReturn=Math.pow(joystick1.getY()+InitGain, Exp); //Speed scaling can be done here
+		JSRightReturn=Math.pow(joystick2.getY()+InitGain, Exp); //Speed scaling can be done here
+		//Half speed
 		n = 2.0; //Scaling number (JSReturnedValue / n)
 	}
 	@Override
