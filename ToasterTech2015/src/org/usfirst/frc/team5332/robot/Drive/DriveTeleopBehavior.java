@@ -25,7 +25,7 @@ public class DriveTeleopBehavior extends SystemBehavior<DriveSoftware>{
 		//NOTE: This code has been moved to DriveSpeedScaling.
 		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
 		//defined in here.
-		/*//IO
+		//IO
 		joystick1=IO.joystick1;
 		joystick2=IO.joystick2;
 		//Normal operation
@@ -36,11 +36,11 @@ public class DriveTeleopBehavior extends SystemBehavior<DriveSoftware>{
 		//Half speed
 		n = 2.0; //Scaling number (JSLeft-RightScaling / n)
 		JSLeftScaling = joystick1.getY() + InitGain / n; //Speed reduction (y + InitGain / n)
-		JSRightScaling =joystick2.getY() + InitGain / n; //Speed reduction (y + InitGain / n)*/
+		JSRightScaling =joystick2.getY() + InitGain / n; //Speed reduction (y + InitGain / n)
 	}
 	@Override
 	public void run() {
-		this.software.driveMotors(joystick1.getX(), joystick1.getY()); //Speed controlled by different axis(es)
+		this.software.driveMotors(joystick1.getY(), joystick2.getY()); //Speed controlled by different axis(es)
 	}
 	
 	public void tankDrive(){

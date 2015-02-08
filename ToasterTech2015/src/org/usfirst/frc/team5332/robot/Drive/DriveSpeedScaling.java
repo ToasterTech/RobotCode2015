@@ -28,6 +28,8 @@ public class DriveSpeedScaling {
 		joystick1=IO.joystick1; //Set the joysticks
 		joystick2=IO.joystick2;
 		//Normal operation
+		//So far the equation for scaling is is Y+2^(x*[x*1.3])
+		//Linear drive is InitGain = 0; and Exp = 1;
 		InitGain = 0; //Initial gain value
 		Exp = 1; //Exponent for curve
 		JSLeftReturn=Math.pow(joystick1.getY()+InitGain, Exp); //Speed scaling (y + InitGain ^ Exp)
