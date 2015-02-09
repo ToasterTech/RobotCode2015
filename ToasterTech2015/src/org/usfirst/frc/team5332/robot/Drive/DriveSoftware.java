@@ -7,7 +7,6 @@ public class DriveSoftware extends SoftwareSystem<DriveHardware>{
 		super(hws);
 		// TODO Auto-generated constructor stub
 	}
-
 	public void driveMotors(double left,double right){
 		this.hardware.setMotors(left, right); //Set motor arguments for function
 	}
