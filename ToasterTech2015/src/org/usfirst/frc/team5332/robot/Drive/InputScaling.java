@@ -5,6 +5,7 @@ public class InputScaling {
 		
 	}
 	public double get(double in){
+
 		//fill in scaling. It is a good idea to subclass for different kinds of scaling
 		return in;
 	}
