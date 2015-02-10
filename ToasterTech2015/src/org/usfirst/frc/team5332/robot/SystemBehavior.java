@@ -1,9 +1,9 @@
 package org.usfirst.frc.team5332.robot;
 
-public abstract class SystemBehavior<E extends SoftwareSystem> {
-	protected E software;
+public abstract class SystemBehavior<E extends SystemLogic> {
+	protected E logic;
 	public SystemBehavior(E sw){
-		software=sw;
+		logic=sw;
 	}
 	public abstract void run();
 }

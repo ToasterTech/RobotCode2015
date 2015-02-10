@@ -1,11 +1,12 @@
 
 package org.usfirst.frc.team5332.robot;
 
-import org.usfirst.frc.team5332.robot.Drive.Drive;
-import org.usfirst.frc.team5332.robot.Drive.DriveHardware;
-import org.usfirst.frc.team5332.robot.Drive.DriveSoftware;
-import org.usfirst.frc.team5332.robot.Drive.DriveTeleopBehavior;
-import org.usfirst.frc.team5332.robot.Drive.DriveTeleopComp;
+import org.usfirst.frc.team5332.robot.drive.Drive;
+import org.usfirst.frc.team5332.robot.drive.DriveReal;
+import org.usfirst.frc.team5332.robot.drive.DriveLogic;
+import org.usfirst.frc.team5332.robot.drive.DriveSelector;
+import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
+import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopComp;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
@@ -25,10 +26,7 @@ public class Robot extends IterativeRobot {
      */
 	Drive drive;
     public void robotInit() {
-    	DriveHardware dh=new DriveHardware();
-    	DriveSoftware ds=new DriveSoftware(dh);
-    	DriveTeleopBehavior	dt=new DriveTeleopComp(ds);
-    	drive=new Drive(dh,ds,dt);
+    	drive=DriveSelector.get(DriveSelector.DriveMode.real);
     }
 
     /**

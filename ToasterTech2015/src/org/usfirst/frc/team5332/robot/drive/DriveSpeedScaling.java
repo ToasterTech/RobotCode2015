@@ -1,7 +1,7 @@
-package org.usfirst.frc.team5332.robot.Drive;
+package org.usfirst.frc.team5332.robot.drive;
 
 import org.usfirst.frc.team5332.robot.IO;
-import org.usfirst.frc.team5332.robot.SoftwareSystem;
+import org.usfirst.frc.team5332.robot.SystemLogic;
 import org.usfirst.frc.team5332.robot.SystemBehavior;
 
 import edu.wpi.first.wpilibj.Joystick;

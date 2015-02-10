@@ -1,10 +1,10 @@
-package org.usfirst.frc.team5332.robot.Drive;
+package org.usfirst.frc.team5332.robot.control;
 
-public class LowSpeedMode {
+public class LinearScaling extends InputScaling{
 	private double returnV;
 	private double divisor;
 	protected double maxSpeed;
-	public LowSpeedMode(){
+	public LinearScaling(){
 		maxSpeed=0;
 		divisor=2;
 		/*

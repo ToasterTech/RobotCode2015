@@ -1,14 +1,14 @@
-package org.usfirst.frc.team5332.robot.Drive;
+package org.usfirst.frc.team5332.robot.drive;
 
 import org.usfirst.frc.team5332.robot.HardwareSystem;
 import org.usfirst.frc.team5332.robot.IO;
 
 import edu.wpi.first.wpilibj.TalonSRX;
 
-public class DriveHardware extends HardwareSystem {
+public class DriveReal extends HardwareSystem {
 	private TalonSRX driveLeft1,driveLeft2;
 	private TalonSRX driveRight1,driveRight2;
-	public DriveHardware(){
+	public DriveReal(){
 		driveLeft1=IO.driveLeft1; //Set the variable to an actual Talon motor controller
 		driveLeft2=IO.driveLeft2;
 		driveRight1=IO.driveRight1;
