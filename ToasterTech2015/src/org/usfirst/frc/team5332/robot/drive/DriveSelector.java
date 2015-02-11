@@ -1,11 +1,13 @@
 package org.usfirst.frc.team5332.robot.drive;
 
+import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
+
 public class DriveSelector {
 	public enum DriveMode{
 		virtual,real
 	}
 	public static Drive get(DriveMode dm){
-		Drive drive = null; //Drive has to be initialized, otherwise Line 16 returns an error
+		Drive drive = null; 
 		switch(dm){
 		case virtual:
 			break;

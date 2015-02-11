@@ -1,11 +1,10 @@
-package org.usfirst.frc.team5332.robot.drive;
+package org.usfirst.frc.team5332.robot.drive.system;
 
-import org.usfirst.frc.team5332.robot.HardwareSystem;
-import org.usfirst.frc.team5332.robot.IO;
+\import org.usfirst.frc.team5332.robot.IO;
 
 import edu.wpi.first.wpilibj.TalonSRX;
 
-public class DriveReal extends HardwareSystem {
+public class DriveReal extends DriveSystem {
 	private TalonSRX driveLeft1,driveLeft2;
 	private TalonSRX driveRight1,driveRight2;
 	public DriveReal(){

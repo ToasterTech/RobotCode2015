@@ -25,8 +25,10 @@ public class DriveTeleopBehavior extends DriveBehavior{
 		//IO
 		joystick1=IO.joystick1;
 		joystick2=IO.joystick2;
+		
 	}
 	public void run(){
+		tankDrive();
 		this.logic.driveMotors(leftSpeed, rightSpeed);
 	}
 	protected void tankDrive(){

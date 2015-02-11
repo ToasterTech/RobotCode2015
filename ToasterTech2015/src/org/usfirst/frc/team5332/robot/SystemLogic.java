@@ -1,14 +1,14 @@
 package org.usfirst.frc.team5332.robot;
 
-public abstract class SystemLogic<E extends HardwareSystem> {
-	protected E hardware;
+public abstract class SystemLogic<E extends RobotSystem> {
+	protected E system;
 	public SystemLogic(){
 		
 	}
 	public SystemLogic(E hws){
-		hardware=hws;
+		system=hws;
 	}
-	public void setHardware(E hw){
-		hardware=hw;
+	public void setSystem(E hw){
+		system=hw;
 	}
 }
