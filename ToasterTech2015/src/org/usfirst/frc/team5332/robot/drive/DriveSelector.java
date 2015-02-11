@@ -5,7 +5,7 @@ public class DriveSelector {
 		virtual,real
 	}
 	public static Drive get(DriveMode dm){
-		Drive drive;
+		Drive drive = null; //Drive has to be initialized, otherwise Line 16 returns an error
 		switch(dm){
 		case virtual:
 			break;

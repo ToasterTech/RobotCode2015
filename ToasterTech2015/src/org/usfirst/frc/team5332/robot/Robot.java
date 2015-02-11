@@ -6,8 +6,6 @@ import org.usfirst.frc.team5332.robot.drive.DriveReal;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 import org.usfirst.frc.team5332.robot.drive.DriveSelector;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
-import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopComp;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TalonSRX;

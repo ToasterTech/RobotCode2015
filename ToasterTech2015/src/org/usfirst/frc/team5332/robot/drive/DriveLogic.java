@@ -9,8 +9,7 @@ public class DriveLogic extends SystemLogic<DriveReal>{
 	public DriveLogic(DriveReal hws) {
 		super(hws);
 		// TODO Auto-generated constructor stub
-	}
-	public 
+	} 
 	public void driveMotors(double left,double right){
 		this.hardware.setMotors(left, right); //Set motor arguments for function
 	}

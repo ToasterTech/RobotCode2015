@@ -13,13 +13,17 @@ If the input is positive (>0) return the positive curve. Otherwise (<0) return t
 
 public class InputScalingExponential extends InputScaling{
 	private double returnV;
-	private double dbGain; //Dead band gain (value to jump the dead band)
-	
+	public double dbGain; //This is also called in LinearScaling
+	public InputScalingExponential(double db){
+		dbGain=db;
+	}
 	public double getScaled(double in){
+		double Exp;
+		Exp = Math.abs(in)*(Math.abs(in)*1.3);
 		if(in > 0)
-			returnV = Math.pow(in+dbGain, in*(in*1.3));
+			returnV = Math.pow(in+dbGain, Exp);
 		else
-			returnV = -(Math.pow(Math.abs(in)+dbGain, Math.abs(in)*(Math.abs(in)*1.3)));
+			returnV = -(Math.pow(Math.abs(in)+dbGain, Exp));
 		return returnV;
 	} 
 }
