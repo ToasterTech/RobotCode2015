@@ -6,7 +6,11 @@ import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 import org.usfirst.frc.team5332.robot.drive.DriveSelector;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
 import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
+import org.usfirst.frc.team5332.robot.intake.Intake;
+import org.usfirst.frc.team5332.robot.intake.behavior.IntakeTeleopBehavior;
+import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TalonSRX;
@@ -24,8 +28,13 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
 	Drive drive;
+	Intake intake;
+	Camera camera;
     public void robotInit() {
     	drive=DriveSelector.get(DriveSelector.DriveMode.real);
+    	intake=new Intake(new IntakeReal());
+    	camera=new Camera("cam0");
+    	camera.init();
     }
 
     /**
@@ -36,6 +45,7 @@ public class Robot extends IterativeRobot {
     }
     public void teleopInit(){
     	drive.setBehavior(new DriveTeleopBehavior());
+    	intake.setBehavior(new IntakeTeleopBehavior());
     }
 
     /**
@@ -43,6 +53,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         drive.run();
+        intake.run();
     }
     
     /**

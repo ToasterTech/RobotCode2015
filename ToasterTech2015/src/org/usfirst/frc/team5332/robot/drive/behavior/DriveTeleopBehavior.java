@@ -17,6 +17,9 @@ public class DriveTeleopBehavior extends DriveBehavior{
 	protected LinearScaling leftLSM,	rightLSM;
 	protected InputScaling 	letfIS,		rightIS;
 	protected Deadband 		leftDB,		rightDB;
+	public DriveTeleopBehavior(){
+		super();
+	}
 	public DriveTeleopBehavior(DriveLogic sw) {
 		super(sw);
 		//NOTE: This code has been moved to DriveSpeedScaling.
