@@ -5,11 +5,8 @@ import org.usfirst.frc.team5332.robot.IO;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class DoubleJoystick extends InputController{
-	private final static DoubleJoystick instance=new DoubleJoystick();
+	public final static DoubleJoystick instance=new DoubleJoystick();
 	private Joystick joystick1,joystick2;
-	public static DoubleJoystick get(){
-		return instance;
-	}
 	public DoubleJoystick(){
 		joystick1=IO.joystick1;
 		joystick2=IO.joystick2;
@@ -41,25 +38,25 @@ public class DoubleJoystick extends InputController{
 	@Override
 	public boolean intakeClamp() {
 		// TODO Auto-generated method stub
- 		return joystick1.getRawButton(0);
+ 		return joystick1.getRawButton(1);
 	}
 
 	@Override
 	public boolean intakeRelease() {
 		// TODO Auto-generated method stub
-		return joystick1.getRawButton(1);
+		return joystick1.getRawButton(2);
 	}
 
 	@Override
 	public boolean intakeDriveForward() {
 		// TODO Auto-generated method stub
-		return joystick2.getRawButton(0);
+		return joystick2.getRawButton(1);
 	}
 
 	@Override
 	public boolean intakeDriveBackward() {
 		// TODO Auto-generated method stub
-		return joystick2.getRawButton(1);
+		return joystick2.getRawButton(2);
 	}
 
 	@Override

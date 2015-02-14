@@ -103,16 +103,20 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 		sensorReturnedValue=system.getSwitchValue();
 		switch(sensorReturnedValue){
 		case five:
-			return LiftHeight.ThreeTote; //Highest
+			return LiftHeight.OneTote; //Highest
 		case four:
 			return LiftHeight.NONE; //Unused
 		case three:
-			return LiftHeight.TwoTote; //Middle
+			return LiftHeight.NONE; //Middle
 		case two:
-			return LiftHeight.NONE; //Unused
+			return LiftHeight.TwoTote; //Unused
 		case one:
-			return LiftHeight.OneTote; //Lowest
+			return LiftHeight.ThreeTote; //Lowest
 		case none:
+			if(this.system.isMax())
+				return LiftHeight.Max;
+			if(this.system.isMin())
+				return LiftHeight.Min;
 			if(system.getMoving())
 				return LiftHeight.Transition; //Because it is not reading anything, but is moving, it is in transition
 			else
@@ -121,5 +125,13 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 			return null;
 		}	
 	}
-
+	public void stop(){
+		system.stop();
+	}
+	public void latch(){
+		system.latch();
+	}
+	public void unlatch(){
+		system.unlatch();
+	}
 }

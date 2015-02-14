@@ -9,6 +9,9 @@ import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
 import org.usfirst.frc.team5332.robot.intake.Intake;
 import org.usfirst.frc.team5332.robot.intake.behavior.IntakeTeleopBehavior;
 import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
+import org.usfirst.frc.team5332.robot.lift.Lift;
+import org.usfirst.frc.team5332.robot.lift.behavior.LiftTestBehavior;
+import org.usfirst.frc.team5332.robot.lift.system.LiftReal;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -29,11 +32,12 @@ public class Robot extends IterativeRobot {
      */
 	Drive drive;
 	Intake intake;
-	
+	Lift lift;
 	Camera camera;
     public void robotInit() {
     	drive=DriveSelector.get(DriveSelector.DriveMode.real);
     	intake=new Intake(new IntakeReal());
+    	lift=new Lift(new LiftReal());
     	camera=new Camera("cam0");
     	camera.init();
     }
@@ -47,14 +51,16 @@ public class Robot extends IterativeRobot {
     public void teleopInit(){
     	drive.setBehavior(new DriveTeleopBehavior());
     	intake.setBehavior(new IntakeTeleopBehavior());
+    	lift.setBehavior(new LiftTestBehavior());
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        drive.run();
-        intake.run();
+        //drive.run();
+        //intake.run();
+        lift.run();
     }
     
     /**

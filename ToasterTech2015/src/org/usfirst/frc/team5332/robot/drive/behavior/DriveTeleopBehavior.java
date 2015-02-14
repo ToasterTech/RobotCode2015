@@ -20,6 +20,7 @@ public class DriveTeleopBehavior extends DriveBehavior{
 	protected Deadband 		leftDB,		rightDB;
 	public DriveTeleopBehavior(){
 		super();
+		controller=DoubleJoystick.instance;
 	}
 	public DriveTeleopBehavior(DriveLogic sw) {
 		super(sw);
@@ -27,7 +28,7 @@ public class DriveTeleopBehavior extends DriveBehavior{
 		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
 		//defined in here.
 		//IO	
-		controller=DoubleJoystick.get();
+		controller=DoubleJoystick.instance;
 
 	}
 	public void run(){

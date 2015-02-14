@@ -25,17 +25,25 @@ public class LiftReal extends LiftSystem{
 
 	@Override
 	public void goUp(double speed) {
-		if(!(this.maxSwitch.get()||this.minSwitch.get())){
+		//System.out.println("Max "+this.maxSwitch.get()+" "+this.maxSwitch.getChannel()+" Min "+this.minSwitch.get()+" "+this.minSwitch.getChannel());
+		if(!(this.maxSwitch.get())){
+			//System.out.println("Motor Up");
 			liftMotor.set(Math.abs(speed)*speedConstant); //Go up
 			isMoving = true;
+		}else{
+			stop();
 		}
 	}
 
 	@Override
 	public void goDown(double speed) {
-		if(!(this.maxSwitch.get()||this.minSwitch.get())){
+		//System.out.println("Max "+this.maxSwitch.get()+" "+this.maxSwitch.getChannel()+" Min "+this.minSwitch.get()+" "+this.minSwitch.getChannel());
+		if(!(this.minSwitch.get())){
+			//System.out.println("Motor Down");
 			liftMotor.set(-Math.abs(speed)*speedConstant); //Go down
 			isMoving = true;
+		}else{
+			stop();
 		}
 	}
 
@@ -44,6 +52,8 @@ public class LiftReal extends LiftSystem{
 		if(!(this.maxSwitch.get()||this.minSwitch.get())){
 			liftMotor.set(speed*speedConstant); //Move
 			isMoving = true;
+		}else{
+			stop();
 		}
 	}
 
@@ -78,5 +88,16 @@ public class LiftReal extends LiftSystem{
 		latch(); //Latch
 		isMoving = false;
 	}
-	
+
+	@Override
+	public boolean isMin() {
+		// TODO Autto-generated method stub
+		return this.minSwitch.get();
+	}
+
+	@Override
+	public boolean isMax() {
+		// TODO Auto-generated method stub
+		return this.maxSwitch.get();
+	}
 }

@@ -11,6 +11,7 @@ public class LiftTeleopBehavior extends LiftBehavior{
 	protected InputController controller;
 	public LiftTeleopBehavior(){
 		super();
+		controller=DoubleJoystick.instance;
 	}
 	public LiftTeleopBehavior(LiftLogic sw) {
 		super(sw);
@@ -18,7 +19,7 @@ public class LiftTeleopBehavior extends LiftBehavior{
 		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
 		//defined in here.
 		//IO		
-		controller=DoubleJoystick.get();
+		controller=DoubleJoystick.instance;
 
 	}
 	public void run(){

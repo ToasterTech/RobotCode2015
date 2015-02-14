@@ -14,6 +14,8 @@ public abstract class LiftSystem extends RobotSystem{
 	public abstract void raiseFlaps();
 	public abstract void stop();
 	public abstract LiftSensor.switchnum getSwitchValue();
+	public abstract boolean isMin();
+	public abstract boolean isMax();
 	public boolean getMoving(){
 		return isMoving;
 	}

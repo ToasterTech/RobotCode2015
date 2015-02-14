@@ -14,6 +14,7 @@ public class LiftSensor {
 		return input.getVoltage();
 	}
 	public switchnum getSwitchNumber(){
+		System.out.println("Analog Value"+get()+" : Rounded "+Math.round(get()));
 		if(Math.round(get()) == 0)
 			return switchnum.none;
 		if(Math.round(get()) == 1)

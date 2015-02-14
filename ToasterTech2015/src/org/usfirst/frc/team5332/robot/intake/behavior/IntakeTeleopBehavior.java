@@ -11,6 +11,7 @@ public class IntakeTeleopBehavior extends IntakeBehavior {
 	InputController controller;
 	public IntakeTeleopBehavior(){
 		super();
+		controller=DoubleJoystick.instance;
 	}
 	public IntakeTeleopBehavior(IntakeLogic sw) {
 		super(sw);
@@ -18,7 +19,7 @@ public class IntakeTeleopBehavior extends IntakeBehavior {
 		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
 		//defined in here.
 		//IO
-		controller=DoubleJoystick.get();
+		controller=DoubleJoystick.instance;
 		
 	}
 	public void run(){
