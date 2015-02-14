@@ -17,7 +17,7 @@ public class IO {
 	public final static TalonSRX intakeLeft=new TalonSRX(5); //Create IO references to the intake Talons
 	public final static TalonSRX intakeRight=new TalonSRX(6);
 	public final static Solenoid intakeLeftPiston=new Solenoid(0); //Create IO references to the intake Solenoids
-	public final static Solenoid intakeRightPiston=new Solenoid(0);
+	public final static Solenoid intakeRightPiston=new Solenoid(4);
 
 	public final static TalonSRX liftMotor=new TalonSRX(7); //Create IO reference to the lift Talon
 	public final static Solenoid liftFlaps=new Solenoid(1); //Create IO references to the lift Solenoids
