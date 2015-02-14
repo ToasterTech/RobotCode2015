@@ -24,6 +24,7 @@ public class LiftTestBehavior extends LiftBehavior{
 			logic.goUp();
 			//logic.latch();
 		}else if(test.intakeDriveForward()){
+			logic.unlatch();
 			logic.goDown();
 		}
 		else{

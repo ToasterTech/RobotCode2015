@@ -39,8 +39,8 @@ public class Robot extends IterativeRobot {
     	drive=DriveSelector.get(DriveSelector.DriveMode.real);
     	intake=new Intake(new IntakeReal());
     	lift=new Lift(new LiftReal());
-    	camera=new Camera("cam0");
-    	camera.init();
+    	//camera=new Camera("cam0");
+    	//camera.init();
     }
 
     /**
@@ -61,7 +61,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         drive.run();
         intake.run();
-        //lift.run();
+        lift.run();
     }
     
     /**

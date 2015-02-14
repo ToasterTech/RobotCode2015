@@ -45,7 +45,7 @@ public class IntakeReal extends IntakeSystem{
 			leftMotor.set(speed);
 		break;
 		case right:
-			rightMotor.set(speed);
+			rightMotor.set(-speed);
 		break;
 		}
 	}
@@ -55,7 +55,7 @@ public class IntakeReal extends IntakeSystem{
 			leftMotor.set(speed*forwardConst);
 		break;
 		case right:
-			rightMotor.set(speed*forwardConst);
+			rightMotor.set(-speed*forwardConst);
 		break;
 		}
 	}
@@ -65,7 +65,7 @@ public class IntakeReal extends IntakeSystem{
 			leftMotor.set(speed*-forwardConst);
 		break;
 		case right:
-			rightMotor.set(speed*-forwardConst);
+			rightMotor.set(-speed*-forwardConst);
 		break;
 		}		
 	}

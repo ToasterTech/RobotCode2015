@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 public class DoubleJoystick extends InputController{
 	public final static DoubleJoystick instance=new DoubleJoystick();
 	private Joystick joystick1,joystick2;
+	private boolean last23,last22;
 	public DoubleJoystick(){
 		joystick1=IO.joystick1;
 		joystick2=IO.joystick2;
