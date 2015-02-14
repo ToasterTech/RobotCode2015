@@ -7,4 +7,7 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 	public LiftLogic(LiftSystem sys){
 		super(sys);
 	}
+	public void goToHeight(LiftSystem.LiftHeight height){
+		
+	}
 }
