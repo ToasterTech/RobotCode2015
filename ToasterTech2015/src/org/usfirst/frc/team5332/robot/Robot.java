@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
      */
 	Drive drive;
 	Intake intake;
+	
 	Camera camera;
     public void robotInit() {
     	drive=DriveSelector.get(DriveSelector.DriveMode.real);

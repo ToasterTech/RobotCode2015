@@ -1,13 +1,14 @@
 package org.usfirst.frc.team5332.robot.intake.behavior;
 
 import org.usfirst.frc.team5332.robot.IO;
+import org.usfirst.frc.team5332.robot.control.DoubleJoystick;
+import org.usfirst.frc.team5332.robot.control.InputController;
 import org.usfirst.frc.team5332.robot.intake.IntakeLogic;
 
 import edu.wpi.first.wpilibj.Joystick;
 
 public class IntakeTeleopBehavior extends IntakeBehavior {
-	protected Joystick 		joystick1;
-	protected Joystick 		joystick2;
+	InputController controller;
 	public IntakeTeleopBehavior(){
 		super();
 	}
@@ -17,19 +18,18 @@ public class IntakeTeleopBehavior extends IntakeBehavior {
 		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
 		//defined in here.
 		//IO
-		joystick1=IO.joystick1;
-		joystick2=IO.joystick2;
+		controller=DoubleJoystick.get();
 		
 	}
 	public void run(){
-		if(joystick1.getRawButton(0)){
+		if(controller.intakeClamp()){
 			logic.clamp();
 		}else{
 			logic.open();
 		}
-		if(joystick2.getRawButton(0)){
+		if(controller.intakeDriveForward()){
 			logic.intakeBothWheels();
-		}else if(joystick2.getRawButton(1)){
+		}else if(controller.intakeDriveBackward()){
 			logic.outakeBothWheels();
 		}else{
 			logic.stop();

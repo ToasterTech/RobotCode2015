@@ -25,54 +25,31 @@ public class LiftReal extends LiftSystem{
 
 	@Override
 	public void goUp(double speed) {
-		liftMotor.set(Math.abs(speed)*speedConstant); //Go up
-		isMoving = true;
+		if(!(this.maxSwitch.get()||this.minSwitch.get())){
+			liftMotor.set(Math.abs(speed)*speedConstant); //Go up
+			isMoving = true;
+		}
 	}
 
 	@Override
 	public void goDown(double speed) {
-		liftMotor.set(-Math.abs(speed)*speedConstant); //Go down
-		isMoving = true;
+		if(!(this.maxSwitch.get()||this.minSwitch.get())){
+			liftMotor.set(-Math.abs(speed)*speedConstant); //Go down
+			isMoving = true;
+		}
 	}
 
 	@Override
 	public void setMotors(double speed) {
-		liftMotor.set(speed*speedConstant); //Move
-		isMoving = true;
+		if(!(this.maxSwitch.get()||this.minSwitch.get())){
+			liftMotor.set(speed*speedConstant); //Move
+			isMoving = true;
+		}
 	}
 
 	@Override
-	public LiftHeight getLiftHeight() {
-		/*
-		Voltage:
-		5- Highest Magnetic Reed Switch value
-		4
-		3
-		2
-		1- Lowest Magnetic Reed Switch value
-		0- No Magnetic Reed Switch value, is in TRANSITION
-		*/
-		LiftSensor.switchnum sensorReturnedValue;
-		sensorReturnedValue=sensor.getSwitchNumber();
-		switch(sensorReturnedValue){
-		case five:
-			return LiftHeight.ThreeTote; //Highest
-		case four:
-			return LiftHeight.NONE; //Unused
-		case three:
-			return LiftHeight.TwoTote; //Middle
-		case two:
-			return LiftHeight.NONE; //Unused
-		case one:
-			return LiftHeight.OneTote; //Lowest
-		case none:
-			if(getMoving())
-				return LiftHeight.Transition; //Because it is not reading anything, but is moving, it is in transition
-			else
-				return LiftHeight.NONE; //Because it is not reading anything, and it is not moving, return NONE
-		default:
-			return null;
-		}
+	public LiftSensor.switchnum getSwitchValue() {
+		return this.sensor.getSwitchNumber();
 	}
 
 	@Override
