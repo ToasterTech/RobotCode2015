@@ -59,16 +59,16 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 	}
 	public boolean goToHeight(LiftHeight height){
 		lastHeight=this.getLastHeight();
-		if(lastHeight==height){
-			system.stop();
-			return true;
+		if(height.direction(lastHeight)<0){
+			system.goDown(1);
+			return false;
 		}
 		if(height.direction(lastHeight)>0){
 			system.goUp(1);
 			return false;
 		}else{
-			system.goDown(1);
-			return false;
+			system.stop();
+			return true;
 		}
 	}
 	public boolean goToNextLevel(){

@@ -10,6 +10,7 @@ import org.usfirst.frc.team5332.robot.intake.Intake;
 import org.usfirst.frc.team5332.robot.intake.behavior.IntakeTeleopBehavior;
 import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
 import org.usfirst.frc.team5332.robot.lift.Lift;
+import org.usfirst.frc.team5332.robot.lift.behavior.LiftTeleopBehavior;
 import org.usfirst.frc.team5332.robot.lift.behavior.LiftTestBehavior;
 import org.usfirst.frc.team5332.robot.lift.system.LiftReal;
 
@@ -51,16 +52,16 @@ public class Robot extends IterativeRobot {
     public void teleopInit(){
     	drive.setBehavior(new DriveTeleopBehavior());
     	intake.setBehavior(new IntakeTeleopBehavior());
-    	lift.setBehavior(new LiftTestBehavior());
+    	lift.setBehavior(new LiftTeleopBehavior());
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        //drive.run();
-        //intake.run();
-        lift.run();
+        drive.run();
+        intake.run();
+        //lift.run();
     }
     
     /**
