@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5332.robot.control;
 
 public abstract class InputController {
+	protected double maxSpeed;
 	public abstract boolean intakeDriveLeft();
 	public abstract boolean intakeMoveLeft();
 	public abstract boolean intakeDriveRight();

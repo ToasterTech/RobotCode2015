@@ -74,13 +74,31 @@ public class DoubleJoystick extends InputController{
 
 	@Override
 	public double driveLeft() {
-		// TODO Auto-generated method stub
-		return joystick1.getY();
+		double value = joystick1.getY();
+		if(value < 0)
+			if(Math.abs(value) > maxSpeed)
+				return -maxSpeed;
+			else
+				return value;
+		else
+			if(Math.abs(value) > maxSpeed)
+				return maxSpeed;
+			else
+				return value;
 	}
 
 	@Override
 	public double driveRight() {
-		// TODO Auto-generated method stub
-		return joystick2.getY();
+		double value = joystick2.getY();
+		if(value < 0)
+			if(Math.abs(value) > maxSpeed)
+				return -maxSpeed;
+			else
+				return value;
+		else
+			if(Math.abs(value) > maxSpeed)
+				return maxSpeed;
+			else
+				return value;
 	}
 }
