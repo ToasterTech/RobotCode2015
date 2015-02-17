@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.TalonSRX;
 public class IntakeReal extends IntakeSystem{
 	private TalonSRX leftMotor,rightMotor;
 	private Solenoid leftPiston,rightPiston;
-	private final double forwardConst=1;
+	private final double forwardConst=-1;
 	public IntakeReal(){
 		super();
 		leftMotor=IO.intakeLeft;

@@ -65,7 +65,7 @@ public class LiftReal extends LiftSystem{
 
 	@Override
 	public void latch() {
-		liftLatch.set(true); //Latch
+		liftLatch.set(false); //Latch
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class LiftReal extends LiftSystem{
 
 	@Override
 	public void lowerFlaps() {
-		liftFlaps.set(false); //Lower the flaps
+		liftFlaps.set(true); //Lower the flaps
 	}
 
 	@Override
