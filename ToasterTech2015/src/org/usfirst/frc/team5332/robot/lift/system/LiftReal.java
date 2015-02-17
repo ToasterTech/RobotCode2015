@@ -26,7 +26,7 @@ public class LiftReal extends LiftSystem{
 	@Override
 	public void goUp(double speed) {
 		System.out.println("Max "+this.maxSwitch.get()+" "+this.maxSwitch.getChannel()+" Min "+this.minSwitch.get()+" "+this.minSwitch.getChannel());
-		if((this.maxSwitch.get())){
+		if(!(this.maxSwitch.get())){
 			//System.out.println("Motor Up");
 			liftMotor.set(Math.abs(speed)*speedConstant); //Go up
 			isMoving = true;
@@ -38,7 +38,7 @@ public class LiftReal extends LiftSystem{
 	@Override
 	public void goDown(double speed) {
 		System.out.println("Max "+this.maxSwitch.get()+" "+this.maxSwitch.getChannel()+" Min "+this.minSwitch.get()+" "+this.minSwitch.getChannel());
-		if((this.minSwitch.get())){
+		if(!(this.minSwitch.get())){
 			//System.out.println("Motor Down");
 			liftMotor.set(-Math.abs(speed)*speedConstant); //Go down
 			isMoving = true;
@@ -65,7 +65,7 @@ public class LiftReal extends LiftSystem{
 
 	@Override
 	public void latch() {
-		liftLatch.set(false); //Latch
+		liftLatch.set(true); //Latch
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class LiftReal extends LiftSystem{
 
 	@Override
 	public void lowerFlaps() {
-		liftFlaps.set(true); //Lower the flaps
+		liftFlaps.set(false); //Lower the flaps
 	}
 
 	@Override

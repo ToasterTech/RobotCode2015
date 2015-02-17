@@ -25,9 +25,11 @@ public class LiftTeleopBehavior extends LiftBehavior{
 	public void run(){
 		if(controller.liftNextLevel()){
 			System.out.println("GO UP");
+			this.logic.unlatch();
 			this.logic.goUp();
 		}
 		else if(controller.liftLastLevel()){
+			this.logic.unlatch();
 			System.out.println("GO DOWN");
 			this.logic.goDown();
 		}else{
