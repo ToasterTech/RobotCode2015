@@ -81,7 +81,7 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 		system.goUp(1);
 	}
 	public void goDown(){
-		system.goDown(0.5);
+		system.goDown(0.25);
 	}
 	public void goUpSlow(){
 		system.goUp(.2);
