@@ -16,12 +16,12 @@ public class IntakeLogic extends SystemLogic<IntakeSystem>{
 		system.extend(IntakeSystem.Side.left);
 	}
 	public void intakeBothWheels(){
-		system.intakeForward(IntakeSystem.Side.right, 1);
-		system.intakeForward(IntakeSystem.Side.left, 1);
+		system.intakeForward(IntakeSystem.Side.right, .6);
+		system.intakeForward(IntakeSystem.Side.left, .6);
 	}
 	public void outakeBothWheels(){
-		system.intakeBackward(IntakeSystem.Side.right, 1);
-		system.intakeBackward(IntakeSystem.Side.left, 1);
+		system.intakeBackward(IntakeSystem.Side.right, .6);
+		system.intakeBackward(IntakeSystem.Side.left, .6);
 	}
 	public void stop(){
 		system.runIntake(IntakeSystem.Side.right,0);
