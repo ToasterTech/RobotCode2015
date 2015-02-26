@@ -12,6 +12,5 @@ public class DriveBehavior extends SystemBehavior<DriveLogic>{
 		super(sw);
 	}
 	public void run(){
-		
 	}
 }
