@@ -105,4 +105,44 @@ public class Gamepad extends InputController {
 		return this.driveSafeFactor.get(motorValue);
 	}
 
+
+
+	@Override
+	public boolean liftDriveUp() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public boolean liftDriveDown() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public boolean estopState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public boolean goToMax() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public boolean goToMin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

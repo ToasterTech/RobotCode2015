@@ -101,4 +101,34 @@ public class DoubleJoystick extends InputController{
 			else
 				return value;
 	}
+
+	@Override
+	public boolean liftDriveUp() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean liftDriveDown() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean estopState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean goToMax() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean goToMin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

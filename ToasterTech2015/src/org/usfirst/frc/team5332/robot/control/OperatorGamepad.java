@@ -107,4 +107,28 @@ public class OperatorGamepad extends InputController {
 		return select && start;
 	}
 
+
+
+	@Override
+	public double driveRight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public boolean goToMax() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public boolean goToMin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
