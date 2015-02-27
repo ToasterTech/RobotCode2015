@@ -13,7 +13,14 @@ public abstract class InputController {
 	
 	public abstract boolean liftNextLevel();
 	public abstract boolean liftLastLevel();
+	public abstract boolean liftDriveUp();
+	public abstract boolean liftDriveDown();
 	
 	public abstract double driveLeft();
 	public abstract double driveRight();
+	
+	public abstract boolean estopState();
+	
+	public abstract boolean goToMax();
+	public abstract boolean goToMin();
 }
