@@ -4,9 +4,12 @@ package org.usfirst.frc.team5332.robot;
 import org.usfirst.frc.team5332.robot.drive.Drive;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 import org.usfirst.frc.team5332.robot.drive.DriveSelector;
+import org.usfirst.frc.team5332.robot.drive.behavior.DriveAutoBehavior;
+import org.usfirst.frc.team5332.robot.drive.behavior.DriveIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
 import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
 import org.usfirst.frc.team5332.robot.intake.Intake;
+import org.usfirst.frc.team5332.robot.intake.behavior.IntakeIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.intake.behavior.IntakeTeleopBehavior;
 import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
 import org.usfirst.frc.team5332.robot.lift.Lift;
@@ -39,15 +42,25 @@ public class Robot extends IterativeRobot {
     	drive=DriveSelector.get(DriveSelector.DriveMode.real);
     	intake=new Intake(new IntakeReal());
     	lift=new Lift(new LiftReal());
-    	//camera=new Camera("cam0");
-    	//camera.init();
+    	camera=new Camera("cam0");
+    	camera.init();
     }
 
     /**
      * This function is called periodically during autonomous
      */
+    public void autonomousInit(){
+    	//DrivePushToteAuto dauto=new DrivePushToteAuto();
+    	DriveAutoBehavior dauto=new DriveAutoBehavior();
+    	//DriveIntakeToteAuto dauto=new DriveIntakeToteAuto();
+    	//IntakeIntakeToteAuto iauto = new IntakeIntakeToteAuto();
+    	dauto.init();
+    	drive.setBehavior(dauto);
+    	//intake.setBehavior(iauto);
+    }
     public void autonomousPeriodic() {
-
+    	drive.run();
+    	//intake.run();
     }
     public void teleopInit(){
     	drive.setBehavior(new DriveTeleopBehavior());
@@ -59,7 +72,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        //drive.run();
+        drive.run();
         intake.run();
         lift.run();
     }

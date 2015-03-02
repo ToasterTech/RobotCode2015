@@ -12,6 +12,8 @@ public class LiftReal extends LiftSystem{
 	private LiftSensor sensor;
 	private DigitalInput maxSwitch,minSwitch;
 	private Solenoid liftFlaps, liftLatch;
+	private boolean latched;
+	private boolean goUp;
 	private final double speedConstant=1;
 	public LiftReal(){
 		super();
@@ -27,9 +29,10 @@ public class LiftReal extends LiftSystem{
 	public void goUp(double speed) {
 		System.out.println("Max "+this.maxSwitch.get()+" "+this.maxSwitch.getChannel()+" Min "+this.minSwitch.get()+" "+this.minSwitch.getChannel());
 		if(!(this.maxSwitch.get())){
-			//System.out.println("Motor Up");
+			System.out.println("Motor Up");
 			liftMotor.set(Math.abs(speed)*speedConstant); //Go up
 			isMoving = true;
+			goUp=true;
 		}else{
 			stop();
 		}
@@ -39,9 +42,10 @@ public class LiftReal extends LiftSystem{
 	public void goDown(double speed) {
 		System.out.println("Max "+this.maxSwitch.get()+" "+this.maxSwitch.getChannel()+" Min "+this.minSwitch.get()+" "+this.minSwitch.getChannel());
 		if(!(this.minSwitch.get())){
-			//System.out.println("Motor Down");
+			System.out.println("Motor Down");
 			liftMotor.set(-Math.abs(speed)*speedConstant); //Go down
 			isMoving = true;
+			goUp=false;
 		}else{
 			stop();
 		}
@@ -65,11 +69,13 @@ public class LiftReal extends LiftSystem{
 
 	@Override
 	public void latch() {
+		latched=true;
 		liftLatch.set(false); //Latch
 	}
 
 	@Override
 	public void unlatch() {
+		latched=false;
 		liftLatch.set(true); //Unlatch
 	}
 
@@ -86,7 +92,6 @@ public class LiftReal extends LiftSystem{
 	@Override
 	public void stop() {
 		liftMotor.set(0); //Stop the motor
-		latch(); //Latch
 		isMoving = false;
 	}
 
@@ -100,5 +105,8 @@ public class LiftReal extends LiftSystem{
 	public boolean isMax() {
 		// TODO Auto-generated method stub
 		return this.maxSwitch.get();
+	}
+	public String status(){
+		return "Max Switch:"+maxSwitch.get()+" Min Switch: "+minSwitch.get()+" Is moving "+isMoving+" Go Up "+goUp+" lathced "+latched;
 	}
 }

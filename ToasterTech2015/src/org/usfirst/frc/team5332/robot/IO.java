@@ -26,6 +26,6 @@ public class IO {
 	public final static DigitalInput liftMinSwitch=new DigitalInput(4);
 	public final static LiftSensor liftSensor=new LiftSensor(1);
 	
-	public final static Joystick joystick1=new Joystick(1); //Left joystick should be [joystick1]
-	public final static Joystick joystick2=new Joystick(0); //Right joystick should be [joystick2]
+	public final static Joystick joystick1=new Joystick(0); //Left joystick should be [joystick1]
+	public final static Joystick joystick2=new Joystick(1); //Right joystick should be [joystick2]
 }

@@ -16,7 +16,7 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 				return 0;
 			}
 			else{
-				return height.value-this.value;
+				return -(height.value-this.value);
 			}
 		}
 		private LiftHeight mapping(int i){
@@ -47,6 +47,7 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 
 	public LiftLogic(LiftSystem sys){
 		super(sys);
+		lastHeight=LiftHeight.Min;
 	}
 	private LiftHeight lastHeight;
 	public LiftHeight getLastHeight(){
@@ -81,7 +82,10 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 		system.goUp(1);
 	}
 	public void goDown(){
-		system.goDown(0.25);
+		system.goDown(0.4);
+	}
+	public void goDownMaxSpeed(){
+		system.goDown(1);
 	}
 	public void goUpSlow(){
 		system.goUp(.2);
@@ -95,7 +99,7 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 		5- Highest Magnetic Reed Switch value
 		4
 		3
-		2
+		2sensorReturnedValue
 		1- Lowest Magnetic Reed Switch value
 		0- No Magnetic Reed Switch value, is in TRANSITION
 		*/
@@ -133,5 +137,9 @@ public class LiftLogic extends SystemLogic<LiftSystem>{
 	}
 	public void unlatch(){
 		system.unlatch();
+	}
+	public String status(){
+		String parent=system.status();
+		return parent+getLiftHeight();
 	}
 }

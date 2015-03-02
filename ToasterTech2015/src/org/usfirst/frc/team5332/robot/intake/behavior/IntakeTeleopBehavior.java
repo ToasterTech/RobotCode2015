@@ -8,10 +8,9 @@ import org.usfirst.frc.team5332.robot.intake.IntakeLogic;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class IntakeTeleopBehavior extends IntakeBehavior {
-	InputController controller;
+	private Joystick joystick = IO.joystick1;
 	public IntakeTeleopBehavior(){
 		super();
-		controller=DoubleJoystick.instance;
 	}
 	public IntakeTeleopBehavior(IntakeLogic sw) {
 		super(sw);
@@ -19,18 +18,16 @@ public class IntakeTeleopBehavior extends IntakeBehavior {
 		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
 		//defined in here.
 		//IO
-		controller=DoubleJoystick.instance;
-		
 	}
 	public void run(){
-		if(controller.intakeClamp()){
+		if(joystick.getRawAxis(2)>.3){
 			logic.clamp();
 		}else{
 			logic.open();
 		}
-		if(controller.intakeDriveForward()){
+		if(joystick.getRawButton(6)){
 			logic.intakeBothWheels();
-		}else if(controller.intakeDriveBackward()){
+		}else if(joystick.getRawButton(5)){
 			logic.outakeBothWheels();
 		}else{
 			logic.stop();

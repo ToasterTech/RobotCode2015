@@ -5,8 +5,10 @@ import org.usfirst.frc.team5332.robot.SystemLogic;
 import org.usfirst.frc.team5332.robot.SystemBehavior;
 import org.usfirst.frc.team5332.robot.control.Deadband;
 import org.usfirst.frc.team5332.robot.control.DoubleJoystick;
+import org.usfirst.frc.team5332.robot.control.Gamepad;
 import org.usfirst.frc.team5332.robot.control.InputController;
 import org.usfirst.frc.team5332.robot.control.InputScaling;
+import org.usfirst.frc.team5332.robot.control.InputScalingFactor;
 import org.usfirst.frc.team5332.robot.control.LinearScaling;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 
@@ -15,12 +17,12 @@ import edu.wpi.first.wpilibj.Joystick;
 public class DriveTeleopBehavior extends DriveBehavior{
 	protected InputController controller;
 	protected double 		leftSpeed,	rightSpeed;
-	protected LinearScaling leftLSM,	rightLSM;
-	protected InputScaling 	letfIS,		rightIS;
-	protected Deadband 		leftDB,		rightDB;
+	protected InputScalingFactor scaling;
+	protected Joystick 		joystick;
 	public DriveTeleopBehavior(){
 		super();
-		controller=DoubleJoystick.instance;
+		joystick=IO.joystick1;
+		scaling=new InputScalingFactor(1);
 	}
 	public DriveTeleopBehavior(DriveLogic sw) {
 		super(sw);
@@ -32,8 +34,10 @@ public class DriveTeleopBehavior extends DriveBehavior{
 
 	}
 	public void run(){
-		leftSpeed=controller.driveLeft();
-		rightSpeed=controller.driveRight();
-		logic.driveMotors(leftSpeed, rightSpeed);
+		leftSpeed=joystick.getRawAxis(1);
+		rightSpeed=joystick.getRawAxis(5);
+		double leftSign=(leftSpeed>0.00)?1.0:-1.0;
+		double rightSign=(rightSpeed>0.0)?1.0:-1.0;
+		logic.driveMotors(leftSign*leftSpeed*leftSpeed, rightSign*rightSpeed*rightSpeed);
 	}
 }

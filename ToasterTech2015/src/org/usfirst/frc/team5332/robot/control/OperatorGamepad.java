@@ -12,32 +12,6 @@ public class OperatorGamepad extends InputController {
 		joystick=IO.joystick1;
 		driveSafeFactor=new InputScalingFactor(.5);
 	}
-	
-	
-	
-	@Override
-	public boolean intakeDriveLeft() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean intakeMoveLeft() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean intakeDriveRight() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean intakeMoveRight() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public boolean intakeClamp() {
@@ -60,45 +34,35 @@ public class OperatorGamepad extends InputController {
 	@Override
 	public boolean intakeDriveBackward() {
 		// TODO Auto-generated method stub
-		return joystick.getRawButton(6);
+		return false;
 	}
-
+	private boolean liftNextLastButton=false;
 	@Override
 	public boolean liftNextLevel() {
 		// TODO Auto-generated method stub
-		return false;
+		boolean in=joystick.getRawButton(2);
+		boolean ret=in&&!liftNextLastButton;
+		liftNextLastButton=in;
+		return ret;
 	}
-
+	private boolean liftLastLastButton=false;
 	@Override
 	public boolean liftLastLevel() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public double driveLeft() {
-		// TODO Auto-generated method stub
-		boolean backwards = joystick.getRawButton(1);
-		double axis = joystick.getRawAxis(1);
-		
-		double motorValue=0;
-		if(backwards)
-			motorValue=-1;
-		else
-			motorValue=-axis;
-		
-		return this.driveSafeFactor.get(motorValue);
+		boolean in=joystick.getRawButton(2);
+		boolean ret=in&&!liftLastLastButton;
+		liftLastLastButton=in;
+		return ret;
 	}
 
 	public boolean liftDriveUp() {
 		// TODO Auto-generated method stub
-		double axis = -joystick.getRawAxis(3);
-		return axis > 0.4;
+		double axis = -joystick.getRawAxis(1);
+		return joystick.getRawButton(5);
 	}
 	
 	public boolean liftDriveDown() {
-		double axis = -joystick.getRawAxis(3);
-		return axis < -0.4;
+		double axis = -joystick.getRawAxis(1);
+		return joystick.getRawButton(6);
 	}
 	
 	public boolean estopState() {

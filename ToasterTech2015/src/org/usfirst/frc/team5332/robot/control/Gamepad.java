@@ -54,25 +54,13 @@ public class Gamepad extends InputController {
 	@Override
 	public boolean intakeDriveForward() {
 		// TODO Auto-generated method stub
-		return false;
+		return joystick.getRawButton(6);
 	}
 
 	@Override
 	public boolean intakeDriveBackward() {
 		// TODO Auto-generated method stub
 		return joystick.getRawButton(6);
-	}
-
-	@Override
-	public boolean liftNextLevel() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean liftLastLevel() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -101,48 +89,7 @@ public class Gamepad extends InputController {
 			motorValue=-1;
 		else
 			motorValue=axis;
-		
 		return this.driveSafeFactor.get(motorValue);
-	}
-
-
-
-	@Override
-	public boolean liftDriveUp() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
-	@Override
-	public boolean liftDriveDown() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
-	@Override
-	public boolean estopState() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
-	@Override
-	public boolean goToMax() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
-	@Override
-	public boolean goToMin() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

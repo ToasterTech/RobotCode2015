@@ -2,25 +2,59 @@ package org.usfirst.frc.team5332.robot.control;
 
 public abstract class InputController {
 	protected double maxSpeed;
-	public abstract boolean intakeDriveLeft();
-	public abstract boolean intakeMoveLeft();
-	public abstract boolean intakeDriveRight();
-	public abstract boolean intakeMoveRight();
-	public abstract boolean intakeClamp();
-	public abstract boolean intakeRelease();
-	public abstract boolean intakeDriveForward();
-	public abstract boolean intakeDriveBackward();
+	public boolean intakeDriveLeft() {
+		return false;
+	}
+	public boolean intakeMoveLeft() {
+		return false;
+	}
+	public boolean intakeDriveRight() {
+		return false;
+	}
+	public boolean intakeMoveRight() {
+		return false;
+	}
+	public boolean intakeClamp() {
+		return false;
+	}
+	public boolean intakeRelease() {
+		return false;
+	}
+	public boolean intakeDriveForward() {
+		return false;
+	}
+	public boolean intakeDriveBackward() {
+		return false;
+	}
 	
-	public abstract boolean liftNextLevel();
-	public abstract boolean liftLastLevel();
-	public abstract boolean liftDriveUp();
-	public abstract boolean liftDriveDown();
+	public boolean liftNextLevel() {
+		return false;
+	}
+	public boolean liftLastLevel() {
+		return false;
+	}
+	public boolean liftDriveUp() {
+		return false;
+	}
+	public boolean liftDriveDown() {
+		return false;
+	}
 	
-	public abstract double driveLeft();
-	public abstract double driveRight();
+	public double driveLeft() {
+		return 0;
+	}
+	public double driveRight() {
+		return 0;
+	}
 	
-	public abstract boolean estopState();
+	public boolean estopState() {
+		return false;
+	}
 	
-	public abstract boolean goToMax();
-	public abstract boolean goToMin();
+	public boolean goToMax() {
+		return false;
+	}
+	public boolean goToMin() {
+		return false;
+	}
 }
