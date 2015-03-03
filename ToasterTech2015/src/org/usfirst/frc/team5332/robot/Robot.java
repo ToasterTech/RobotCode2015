@@ -5,11 +5,11 @@ import org.usfirst.frc.team5332.robot.drive.Drive;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 import org.usfirst.frc.team5332.robot.drive.DriveSelector;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveAutoBehavior;
-import org.usfirst.frc.team5332.robot.drive.behavior.DriveIntakeToteAuto;
+//import org.usfirst.frc.team5332.robot.drive.behavior.DriveIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
 import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
 import org.usfirst.frc.team5332.robot.intake.Intake;
-import org.usfirst.frc.team5332.robot.intake.behavior.IntakeIntakeToteAuto;
+//import org.usfirst.frc.team5332.robot.intake.behavior.IntakeIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.intake.behavior.IntakeTeleopBehavior;
 import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
 import org.usfirst.frc.team5332.robot.lift.Lift;
@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot {
 	Lift lift;
 	Camera camera;
     public void robotInit() {
-    	drive=DriveSelector.get(DriveSelector.DriveMode.real);
+    	drive=new Drive(new DriveReal());
     	intake=new Intake(new IntakeReal());
     	lift=new Lift(new LiftReal());
     	camera=new Camera("cam0");

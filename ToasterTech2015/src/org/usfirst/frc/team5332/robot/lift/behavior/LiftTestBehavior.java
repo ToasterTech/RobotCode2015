@@ -5,7 +5,9 @@ import org.usfirst.frc.team5332.robot.control.DoubleJoystick;
 import org.usfirst.frc.team5332.robot.control.InputController;
 import org.usfirst.frc.team5332.robot.control.OperatorGamepad;
 import org.usfirst.frc.team5332.robot.lift.LiftLogic;
-
+/*
+ * A test behavior to ensure the logic and system levels are sound. 
+ */
 public class LiftTestBehavior extends LiftBehavior{
 	InputController test;
 	public LiftTestBehavior(){

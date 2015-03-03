@@ -13,10 +13,13 @@ import org.usfirst.frc.team5332.robot.control.LinearScaling;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 
 import edu.wpi.first.wpilibj.Joystick;
-
+/*
+ * Teleop behavior for drive. Maps the joystick axes to tank drive with a x^2 scaling factor. 
+ * This code is slightly hacked together and was rewritten at the competition. Needs improvement 
+ */
 public class DriveTeleopBehavior extends DriveBehavior{
 	protected InputController controller;
-	protected double 		leftSpeed,	rightSpeed;
+	protected double 			leftSpeed,	rightSpeed;
 	protected InputScalingFactor scaling;
 	protected Joystick 		joystick;
 	public DriveTeleopBehavior(){

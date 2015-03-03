@@ -7,7 +7,9 @@ import org.usfirst.frc.team5332.robot.control.OperatorGamepad;
 import org.usfirst.frc.team5332.robot.lift.LiftLogic;
 
 import edu.wpi.first.wpilibj.Joystick;
-
+/*
+ * Teleop behavior for the lift.
+ */
 public class LiftTeleopBehavior extends LiftBehavior{
 	private boolean transition;
 	private Joystick joystick;
@@ -20,16 +22,21 @@ public class LiftTeleopBehavior extends LiftBehavior{
 	}
 	public LiftTeleopBehavior(LiftLogic sw) {
 		super(sw);
-		//NOTE: This code has been moved to DriveSpeedScaling.
-		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
-		//defined in here.
-		//IO
 		target=LiftLogic.LiftHeight.Min;
 		joystick = IO.joystick2;
 		transition=false;
 	}
 	private boolean lastLevelToggle1=false;
 	private boolean lastLevelToggle2=false;
+	/* 
+	 * Runs the lift using these commands:
+	 * 
+	 * Joystick Bumper	 Left 	Goes up
+	 * Joystick Bumper 	Right 	Goes down
+	 * Joystick Trigger Right 	Goes down fast
+	 * Joystick Button 	A	 	Goes down one level
+	 * Joystick Button 	B		Goes Up one level
+	 */
 	public void run(){
 		boolean levelToggle1 = joystick.getRawButton(2); //CHANGE ONE OF THESE
 		boolean levelToggle2 = joystick.getRawButton(3);
@@ -50,6 +57,7 @@ public class LiftTeleopBehavior extends LiftBehavior{
 			this.logic.goDownMaxSpeed();
 			transition=false;
 		}/*
+		//Ths is buggy, and throws null pointers and may be stopping the lift. 
 		else if(levelToggle1 && !lastLevelToggle1){
 			target=target.getNext();
 			transition=true;
@@ -70,6 +78,6 @@ public class LiftTeleopBehavior extends LiftBehavior{
 			logic.stop();
 		}
 		lastLevelToggle1=true;
-		lastLevelToggle2=true;		
+		lastLevelToggle2 = true;
 	}
 }

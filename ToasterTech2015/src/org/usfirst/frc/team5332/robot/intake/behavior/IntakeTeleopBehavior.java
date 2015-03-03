@@ -6,7 +6,9 @@ import org.usfirst.frc.team5332.robot.control.InputController;
 import org.usfirst.frc.team5332.robot.intake.IntakeLogic;
 
 import edu.wpi.first.wpilibj.Joystick;
-
+/* 
+ * Intake behavior for teleop mode.
+ */
 public class IntakeTeleopBehavior extends IntakeBehavior {
 	private Joystick joystick = IO.joystick1;
 	public IntakeTeleopBehavior(){

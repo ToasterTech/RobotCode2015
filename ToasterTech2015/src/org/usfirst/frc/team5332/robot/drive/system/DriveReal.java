@@ -3,7 +3,10 @@ package org.usfirst.frc.team5332.robot.drive.system;
 import org.usfirst.frc.team5332.robot.IO;
 
 import edu.wpi.first.wpilibj.TalonSRX;
-
+/*
+ * Implementations of the drive on hardware.
+ * For some reason we calibrated the motors to drive forward with a negative value. This should be changed.
+ */
 public class DriveReal extends DriveSystem {
 	private TalonSRX driveLeft1,driveLeft2;
 	private TalonSRX driveRight1,driveRight2;

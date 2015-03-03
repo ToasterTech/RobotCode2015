@@ -2,7 +2,9 @@ package org.usfirst.frc.team5332.robot.intake;
 
 import org.usfirst.frc.team5332.robot.SystemLogic;
 import org.usfirst.frc.team5332.robot.intake.systems.IntakeSystem;
-
+/*
+ * Logic to control the intake system. 
+ */
 public class IntakeLogic extends SystemLogic<IntakeSystem>{
 	public IntakeLogic(IntakeSystem sys){
 		this.system=sys;

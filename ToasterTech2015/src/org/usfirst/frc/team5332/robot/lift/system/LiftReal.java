@@ -6,7 +6,9 @@ import org.usfirst.frc.team5332.robot.sensors.LiftSensor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TalonSRX;
-
+/* 
+ * The implementation of the lift on real hardware. 
+ */
 public class LiftReal extends LiftSystem{
 	private TalonSRX liftMotor;
 	private LiftSensor sensor;

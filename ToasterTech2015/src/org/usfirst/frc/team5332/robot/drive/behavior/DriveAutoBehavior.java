@@ -3,7 +3,10 @@ package org.usfirst.frc.team5332.robot.drive.behavior;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 
 import edu.wpi.first.wpilibj.Timer;
-
+/*
+ * Auto behavior for the drive forward autonomous.
+ * Implements a Finite State Machine to determine what to do based on timer inputs. 
+ */
 public class DriveAutoBehavior extends DriveBehavior{
 	protected States state;
 	protected double startTime;

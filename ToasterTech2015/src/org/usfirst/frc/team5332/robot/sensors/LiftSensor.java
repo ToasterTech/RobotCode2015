@@ -1,7 +1,11 @@
 package org.usfirst.frc.team5332.robot.sensors;
 
 import edu.wpi.first.wpilibj.AnalogInput;
-
+/*
+ * A class defining the lift sensor that Josh designed. 
+ * 
+ * Can return the raw voltage as well as an enum detailing which switch is currently being triggered. 
+ */
 public class LiftSensor {
 	public enum switchnum{
 		one,two,three,four,five,none;

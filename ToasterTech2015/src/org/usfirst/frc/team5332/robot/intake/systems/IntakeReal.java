@@ -6,7 +6,9 @@ import org.usfirst.frc.team5332.robot.intake.systems.IntakeSystem.Side;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TalonSRX;
-
+/*
+ * Intake system for running on the robot. 
+ */
 public class IntakeReal extends IntakeSystem{
 	private TalonSRX leftMotor,rightMotor;
 	private Solenoid leftPiston,rightPiston;
