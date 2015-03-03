@@ -10,7 +10,7 @@ When the project is cloned eclipse may show an unbound classpath error. This occ
 
  1. In eclipse right click on project and select properties.
  2. In the properties window select buildpath and open the libraries tab. 
- 3. Use add external JARs to add the WPIlib JARs. These will be the networktables.jar and wpilib.jar and by default are found in the wpilib folder in the home directory(Windows: C:\Users\\[username]\wpilib; Linux: ~\wpilib). The JARs should be in java\current\lib of the wpilib folder. 
+ 3. Change the classpath variable for wpilib and networktables to point towards the correct JAR files. These are found by default for windows in C:\users\\[username]\wpilib\java\current\lib\ (for linux: ~\wpilib\..).  
 
 ## Structure
 This code is structered based on discussions the ToasterTech programming team had over the fall 2014 training and the early weeks of the build season. 
