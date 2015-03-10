@@ -4,9 +4,9 @@ package org.usfirst.frc.team5332.robot;
 import org.usfirst.frc.team5332.robot.drive.Drive;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 import org.usfirst.frc.team5332.robot.drive.DriveSelector;
-import org.usfirst.frc.team5332.robot.drive.behavior.DriveAutoBehavior;
 //import org.usfirst.frc.team5332.robot.drive.behavior.DriveIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
+import org.usfirst.frc.team5332.robot.drive.behavior.auto.DriveAutoDriveForward;
 import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
 import org.usfirst.frc.team5332.robot.intake.Intake;
 //import org.usfirst.frc.team5332.robot.intake.behavior.IntakeIntakeToteAuto;
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousInit(){
     	//DrivePushToteAuto dauto=new DrivePushToteAuto();
-    	DriveAutoBehavior dauto=new DriveAutoBehavior();
+    	DriveAutoDriveForward dauto=new DriveAutoDriveForward();
     	//DriveIntakeToteAuto dauto=new DriveIntakeToteAuto();
     	//IntakeIntakeToteAuto iauto = new IntakeIntakeToteAuto();
     	dauto.init();
