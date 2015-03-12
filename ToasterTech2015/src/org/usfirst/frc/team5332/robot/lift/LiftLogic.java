@@ -160,7 +160,7 @@ public class LiftLogic extends
 				return LiftHeight.NONE; // Because it is not reading anything,
 										// and it is not moving, return NONE
 		default:
-			return null;
+			return LiftHeight.NONE;
 		}
 	}
 

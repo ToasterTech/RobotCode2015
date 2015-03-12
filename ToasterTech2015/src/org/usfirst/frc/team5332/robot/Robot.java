@@ -1,6 +1,6 @@
 
 package org.usfirst.frc.team5332.robot;
-
+/*DRIVE*/
 import org.usfirst.frc.team5332.robot.drive.Drive;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 import org.usfirst.frc.team5332.robot.drive.DriveSelector;
@@ -8,19 +8,22 @@ import org.usfirst.frc.team5332.robot.drive.DriveSelector;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
 import org.usfirst.frc.team5332.robot.drive.behavior.auto.DriveAutoDriveForward;
 import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
+/*INTAKE*/
 import org.usfirst.frc.team5332.robot.intake.Intake;
 //import org.usfirst.frc.team5332.robot.intake.behavior.IntakeIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.intake.behavior.IntakeTeleopBehavior;
 import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
+/*LIFT*/
 import org.usfirst.frc.team5332.robot.lift.Lift;
 import org.usfirst.frc.team5332.robot.lift.behavior.LiftTeleopBehavior;
 import org.usfirst.frc.team5332.robot.lift.behavior.LiftTestBehavior;
 import org.usfirst.frc.team5332.robot.lift.system.LiftReal;
-
+/*MISC.*/
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TalonSRX;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,12 +41,14 @@ public class Robot extends IterativeRobot {
 	Intake intake;
 	Lift lift;
 	Camera camera;
+	NetworkTable ntTable;
     public void robotInit() {
     	drive=new Drive(new DriveReal());
     	intake=new Intake(new IntakeReal());
     	lift=new Lift(new LiftReal());
     	camera=new Camera("cam0");
     	camera.init();
+    	ntTable = NetworkTable.getTable("driverStationData");
     }
 
     /**
@@ -59,6 +64,9 @@ public class Robot extends IterativeRobot {
     	//intake.setBehavior(iauto);
     }
     public void autonomousPeriodic() {
+    	/*
+    	 * TODO: Auton state switch machines
+    	 */
     	drive.run();
     	//intake.run();
     }
