@@ -2,6 +2,7 @@ package org.usfirst.frc.team5332.robot;
 
 import org.usfirst.frc.team5332.robot.sensors.LiftSensor;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TalonSRX;
@@ -22,6 +23,21 @@ public class IO {
 			3);
 	public final static TalonSRX driveRight2 = new TalonSRX(
 			4);
+	/*
+	 * Encoders
+	 * Grayhill Series 63R 5 Pin
+	 * 250 pulses / rev
+	 * 4.125" / rev
+	 * 4.125" / 250 pulses
+	 * (note: Ben, Casey and Myles disagreed on these things, so I'm not sure to trust what they ended up giving me)
+	 * Some genius put our team numbers on top of the RIO so I don't know which DIO ports to use
+	 * 0 is the generic value for now
+	 * Also, I am not sure which encoder value needs to be reversed.
+	 * Syntax:
+	 * Encoder(int channelA, int channelB, bool reverseDirection);
+	 */
+	public final static Encoder encoderLeft = new Encoder(0,0,false);
+	public final static Encoder encoderRight = new Encoder(0,0,false);
 
 	public final static TalonSRX intakeLeft = new TalonSRX(
 			5); // Create IO references to the intake Talons
