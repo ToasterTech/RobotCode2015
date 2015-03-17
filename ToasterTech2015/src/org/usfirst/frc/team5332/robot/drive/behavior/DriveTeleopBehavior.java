@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class DriveTeleopBehavior extends DriveBehavior{
 	protected InputController controller;
+	protected double	leftFinalValue,rightFinalValue;
 	protected double 			leftSpeed,	rightSpeed;
 	protected InputScalingFactor scaling;
 	protected Joystick 		joystick;
@@ -32,7 +33,7 @@ public class DriveTeleopBehavior extends DriveBehavior{
 		//NOTE: This code has been moved to DriveSpeedScaling.
 		//The entire class file needs to be adjusted, taking values from DriveSpeedScaling instead of having everything
 		//defined in here.
-		//IO	
+		//IO
 		controller=DoubleJoystick.instance;
 
 	}
@@ -41,6 +42,10 @@ public class DriveTeleopBehavior extends DriveBehavior{
 		rightSpeed=joystick.getRawAxis(5);
 		double leftSign=(leftSpeed>0.00)?1.0:-1.0;
 		double rightSign=(rightSpeed>0.0)?1.0:-1.0;
-		logic.driveMotors(leftSign*leftSpeed*leftSpeed, rightSign*rightSpeed*rightSpeed);
+		//Speed acceleration rate control code
+		//Limits the rate of acceleration per tick
+		leftFinalValue=leftSign*leftSpeed*leftSpeed;
+		rightFinalValue=rightSign*rightSpeed*rightSpeed;
+		logic.driveMotors(leftFinalValue, rightFinalValue);
 	}
 }
