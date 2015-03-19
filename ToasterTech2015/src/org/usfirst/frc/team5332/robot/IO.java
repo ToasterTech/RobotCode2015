@@ -25,11 +25,6 @@ public class IO {
 			4);
 	/*
 	 * Encoders
-	 * Grayhill Series 63R 5 Pin
-	 * 250 pulses / rev
-	 * 4.125" / rev
-	 * 4.125" / 250 pulses
-	 * (note: Ben, Casey and Myles disagreed on these things, so I'm not sure to trust what they ended up giving me)
 	 * Some genius put our team numbers on top of the RIO so I don't know which DIO ports to use
 	 * 0 is the generic value for now
 	 * Also, I am not sure which encoder value needs to be reversed.
