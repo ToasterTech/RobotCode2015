@@ -12,6 +12,7 @@ import org.usfirst.frc.team5332.robot.control.InputScalingFactor;
 import org.usfirst.frc.team5332.robot.control.LinearScaling;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 /*
  * Teleop behavior for drive. Maps the joystick axes to tank drive with a x^2 scaling factor. 
@@ -23,6 +24,8 @@ public class DriveTeleopBehavior extends DriveBehavior{
 	protected double 			leftSpeed,	rightSpeed;
 	protected InputScalingFactor scaling;
 	protected Joystick 		joystick;
+	private Encoder encoderLeft = IO.encoderLeft;
+	private Encoder encoderRight = IO.encoderRight;
 	public DriveTeleopBehavior(){
 		super();
 		joystick=IO.joystick1;
@@ -42,10 +45,18 @@ public class DriveTeleopBehavior extends DriveBehavior{
 		rightSpeed=joystick.getRawAxis(5);
 		double leftSign=(leftSpeed>0.00)?1.0:-1.0;
 		double rightSign=(rightSpeed>0.0)?1.0:-1.0;
-		//Speed acceleration rate control code
-		//Limits the rate of acceleration per tick
+		/*
+		if(leftSign > encoderLeft.getRate())
+			leftFinalValue = leftSign*leftSpeed*leftSpeed; //Return a limited value
+		else
+			leftFinalValue=leftSign*leftSpeed*leftSpeed; //Return the original value
+		if(rightSign > encoderRight.getRate())
+			rightFinalValue = rightSign*rightSpeed*rightSpeed; //Return a limited value
+		else
+			rightFinalValue=rightSign*rightSpeed*rightSpeed; //Return the original value
+		*/
 		leftFinalValue=leftSign*leftSpeed*leftSpeed;
-		rightFinalValue=rightSign*rightSpeed*rightSpeed;
+		rightFinalValue = rightSign*rightSpeed*rightSpeed;
 		logic.driveMotors(leftFinalValue, rightFinalValue);
 	}
 }

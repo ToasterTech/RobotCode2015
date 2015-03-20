@@ -25,14 +25,14 @@ public class IO {
 			4);
 	/*
 	 * Encoders
-	 * Some genius put our team numbers on top of the RIO so I don't know which DIO ports to use
+	 * Someone put our team numbers on top of the RIO so I don't know which DIO ports to use
 	 * 0 is the generic value for now
 	 * Also, I am not sure which encoder value needs to be reversed.
 	 * Syntax:
 	 * Encoder(int channelA, int channelB, bool reverseDirection);
 	 */
-	public final static Encoder encoderLeft = new Encoder(0,0,false);
-	public final static Encoder encoderRight = new Encoder(0,0,false);
+	public final static Encoder encoderLeft = new Encoder(0,0,false); // Create IO references to Encoders
+	public final static Encoder encoderRight = new Encoder(0,0,false); // Create IO references to Encoders
 
 	public final static TalonSRX intakeLeft = new TalonSRX(
 			5); // Create IO references to the intake Talons

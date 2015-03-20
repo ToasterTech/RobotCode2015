@@ -1,7 +1,6 @@
 package org.usfirst.frc.team5332.robot.drive.system;
 
 import org.usfirst.frc.team5332.robot.IO;
-
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TalonSRX;
 /*
@@ -15,9 +14,15 @@ public class DriveReal extends DriveSystem {
 	private Encoder encoderRight;
 	private double turnConstant = 1; /*NOTE: If the robot is turning the wrong direction in the 90* turn function, set this to -1*/
 	private double turnLength = 1; /*Calibrate this value until you get a 90* or apx. 90* turn*/
-	private double distancePerPulse = 4.125;
+	private double distancePerPulse = 0.001375;
 	////////////////////////////////////////
-	/*Casey/Ben weren't sure on this, so this should be tweaked*/
+	/*
+	 * Notes about distance per pulse
+	 * I was told 250 pulses per revolution & 4.125 inches per revolution (this needs to be checked, since Casey/Ben weren't sure
+	 * 4.125 in / 250 pulses = 0.0165 inches per pulse
+	 * 0.0165 in / 12 = 0.001375 feet per pulse
+	 * TODO: Confirm encoder stats, and is it geared
+	 */
 	////////////////////////////////////////
 	public DriveReal(){
 		driveLeft1=IO.driveLeft1; //Set the variable to an actual Talon motor controller
