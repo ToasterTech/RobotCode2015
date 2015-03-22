@@ -69,31 +69,53 @@ public class Robot extends IterativeRobot {
     	case 1:
     		/*AutoDriveForward*/
     		DriveAutoDriveForward d_AutoDriveForward=new DriveAutoDriveForward();
+        	d_AutoDriveForward.init();
+        	drive.setBehavior(d_AutoDriveForward);
     		break;
     	case 2:
     		/*AutoIntakeTote*/
     		DriveAutoIntakeTote d_AutoIntakeTote=new DriveAutoIntakeTote();
+        	d_AutoIntakeTote.init();
+        	drive.setBehavior(d_AutoIntakeTote);
     		IntakeAutoIntakeTote i_AutoIntakeTote=new IntakeAutoIntakeTote();
+    		i_AutoIntakeTote.init();
+    		intake.setBehavior(i_AutoIntakeTote);
     		break;
     	case 3:
     		/*AutoIntakeBin*/
     		DriveAutoIntakeBin d_AutoIntakeBin=new DriveAutoIntakeBin();
+        	d_AutoIntakeBin.init();
+        	drive.setBehavior(d_AutoIntakeBin);
     		IntakeAutoIntakeBin i_AutoIntakeBin=new IntakeAutoIntakeBin();
+    		i_AutoIntakeBin.init();
+    		intake.setBehavior(i_AutoIntakeBin);
     		break;
     	case 4:
     		/*AutoIntakeToteAndBin*/
     		/*
     		DriveAutoIntakeToteAndBin d_AutoIntakeToteAndBin=new DriveAutoIntakeToteAndBin();
+        	d_AutoIntakeToteAndBin.init();
+        	drive.setBehavior(d_AutoIntakeToteAndBin);
     		IntakeAutoIntakeToteAndBin i_AutoIntakeToteAndBin=new IntakeAutoIntakeToteAndBin();
+    		i_AutoIntakeToteAndBin.init();
+    		intake.setBehavior(i_AutoIntakeToteAndBin);
     		LiftAutoIntakeToteAndBin l_AutoIntakeToteAndBin=new LifAutoIntakeToteAndBin();
+    		l_AutoIntakeToteAndBin.init();
+    		lift.setBehavior(l_AutoIntakeToteAndBin);
     		*/
     		break;
     	case 5:
     		/*Auto3Stack*/
     		/*
     		DriveAuto3Stack d_Auto3Stack=new DriveAuto3Stack();
+    		d_Auto3Stack.init();
+    		drive.setBehavior(d_Auto3Stack);
     		IntakeAuto3Stack i_Auto3Stack=new IntakeAuto3Stack();
+    		i_Auto3Stack.init();
+    		intake.setBehavior(i_Auto3Stack);
     		LiftAuto3Stack l_Auto3Stack=new LiftAuto3Stack();
+    		l_Auto3Stack.init();
+    		lift.setBehavior(l_Auto3Stack);
     		*/
     		break;
     	}
@@ -109,11 +131,34 @@ public class Robot extends IterativeRobot {
     	*/
     }
     public void autonomousPeriodic() {
-    	/*
-    	 * TODO: Auton state switch machines
-    	 */
-    	drive.run();
-    	//intake.run();
+    	switch(selectedAuto){
+    	case 1:
+    		/*Run the drive code for AutoDriveForward*/
+    		drive.run();
+    		break;
+    	case 2:
+    		/*Run the drive and intake code for AutoIntakeBin*/
+        	drive.run();
+        	intake.run();
+    		break;
+    	case 3:
+    		/*Run the drive and intake code for AutoIntakeTote*/
+        	drive.run();
+        	intake.run();
+    		break;
+    	case 4:
+    		/*Run the drive, intake, and lift code for AutoIntakeToteAndBin*/
+        	drive.run();
+        	intake.run();
+        	lift.run();
+    		break;
+    	case 5:
+    		/*Run the drive, intake, and lift code for Auto3Stack*/
+        	drive.run();
+        	intake.run();
+        	lift.run();
+    		break;
+    	}
     }
     public void teleopInit(){
     	drive.setBehavior(new DriveTeleopBehavior());
