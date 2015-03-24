@@ -4,24 +4,25 @@ package org.usfirst.frc.team5332.robot;
 import org.usfirst.frc.team5332.robot.drive.Drive;
 import org.usfirst.frc.team5332.robot.drive.DriveLogic;
 import org.usfirst.frc.team5332.robot.drive.DriveSelector;
-//import org.usfirst.frc.team5332.robot.drive.behavior.DriveIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.drive.behavior.DriveTeleopBehavior;
+import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
+//Drive Autos
 import org.usfirst.frc.team5332.robot.drive.behavior.auto.DriveAutoDriveForward;
 import org.usfirst.frc.team5332.robot.drive.behavior.auto.DriveAutoIntakeBin;
 import org.usfirst.frc.team5332.robot.drive.behavior.auto.DriveAutoIntakeTote;
-import org.usfirst.frc.team5332.robot.drive.system.DriveReal;
 /*INTAKE*/
 import org.usfirst.frc.team5332.robot.intake.Intake;
-//import org.usfirst.frc.team5332.robot.intake.behavior.IntakeIntakeToteAuto;
 import org.usfirst.frc.team5332.robot.intake.behavior.IntakeTeleopBehavior;
+import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
+//Intake Autos
 import org.usfirst.frc.team5332.robot.intake.behavior.auto.IntakeAutoIntakeBin;
 import org.usfirst.frc.team5332.robot.intake.behavior.auto.IntakeAutoIntakeTote;
-import org.usfirst.frc.team5332.robot.intake.systems.IntakeReal;
 /*LIFT*/
 import org.usfirst.frc.team5332.robot.lift.Lift;
 import org.usfirst.frc.team5332.robot.lift.behavior.LiftTeleopBehavior;
 import org.usfirst.frc.team5332.robot.lift.behavior.LiftTestBehavior;
 import org.usfirst.frc.team5332.robot.lift.system.LiftReal;
+//Lift Autos
 
 
 
@@ -132,31 +133,35 @@ public class Robot extends IterativeRobot {
     }
     public void autonomousPeriodic() {
     	switch(selectedAuto){
-    	case 1:
+    	case 0:
     		/*Run the drive code for AutoDriveForward*/
     		drive.run();
     		break;
-    	case 2:
+    	case 1:
     		/*Run the drive and intake code for AutoIntakeBin*/
         	drive.run();
         	intake.run();
     		break;
-    	case 3:
+    	case 2:
     		/*Run the drive and intake code for AutoIntakeTote*/
         	drive.run();
         	intake.run();
     		break;
-    	case 4:
+    	case 3:
     		/*Run the drive, intake, and lift code for AutoIntakeToteAndBin*/
-        	drive.run();
+        	/*
+    		drive.run();
         	intake.run();
         	lift.run();
+    		*/
     		break;
-    	case 5:
+    	case 4:
     		/*Run the drive, intake, and lift code for Auto3Stack*/
+        	/*
         	drive.run();
         	intake.run();
         	lift.run();
+        	*/
     		break;
     	}
     }
